@@ -8,8 +8,8 @@ Authors@R: c(person("Laurent", "Gatto",
 	            email = "mlw.kohze@student.ru.nl",
 		    role = c("aut", "cre")))
 Description: A interface SpatialMap's firebase backend.
+Depends: MSnbase, httr, openssl, jsonlite
 Suggests: pRolocdata
-Depends: R (>= 3.4.2)
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
