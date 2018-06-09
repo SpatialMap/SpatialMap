@@ -1,12 +1,9 @@
 Package: spatialmap
 Title: An R interface to SpatialMap
-Version: 0.0.1
-Authors@R: c(person("Laurent", "Gatto",
-                    email = "lg390@cam.ac.uk",
-	            role = c("aut", "cre")),
-	     person("Robin", "Kohze",
-	            email = "mlw.kohze@student.ru.nl",
-		    role = c("aut", "cre")))
+Version: 0.0.2
+Authors@R: c(
+    person("Laurent", "Gatto", email = "lg390@cam.ac.uk", role = "cre"),
+    person("Robin", "Kohze", email = "robin@kohze.com", role = "aut"))
 Description: A interface SpatialMap's firebase backend.
 Depends: MSnbase, httr, openssl, jsonlite
 Suggests: pRolocdata
