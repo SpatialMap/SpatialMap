@@ -6,7 +6,10 @@
 ##' @export
 createAccount <- function(password = "prompt", email = "prompt") {
   projectAPI <- fromJSON("keys.json")$projectAPI
-  email <- readline(prompt = "Enter Email: ")
+  if (password == "prompt" && email == "prompt"){
+    email <- readline(prompt = "Enter Email: ")
+    password <- readline(prompt = "Enter Password: ")
+  }
   AuthUrl <- paste0("https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=", projectAPI)
   userData <- POST(url = AuthUrl, body = list("email" = email, "password" = password), encode = "json")
   return(httr::content(userData))
