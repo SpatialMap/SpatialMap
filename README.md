@@ -13,7 +13,7 @@ The SpatialMap R package allows to manage SpatialMap user accounts and to update
 if (!require("devtools")) install.packages("devtools")
 devtools::install_github("lgatto/spatialmap")
 
-library(fireData)
+library(spatialmap)
 ```
 
 ### Examples
