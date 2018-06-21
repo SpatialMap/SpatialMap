@@ -79,7 +79,7 @@ download <- function(dataset) {
 ##' @param token The JWT token created with the login() function.
 ##' @return Reports the successfull transfer and outputs the random ID.
 ##' @export
-upload <- function(dataset, name, token, public = TRUE){
+upload <- function(dataset, name, token = login(), public = TRUE){
   dbURL <- fromJSON("keys.json")$dbURL
   #pRolocMetaData
   pRolocMeta <- pRolocMetaFrame(eval(as.name(dataset)), varName = name, token = token, public = public)
@@ -243,10 +243,10 @@ pRolocMetaFrame <- function(object, varName, token, public){
 ##' SpatialMaps website or returned after each upload.
 ##' @return Returns success message. 
 ##' @export
-update <- function(dataset, name, token, randomKey) {
+update <- function(dataset, name, token = login(), randomKey, public = TRUE) {
     dbURL <- dbURL <- fromJSON("keys.json")$dbURL
     #pRolocMetaData
-    pRolocMeta <- pRolocMetaFrame(eval(as.name(dataset)), varName = name, token = token)
+    pRolocMeta <- pRolocMetaFrame(eval(as.name(dataset)), varName = name, token = token, public = public)
     PUT(paste0(dbURL,"/meta/",randomKey,".json"), body = toJSON(pRolocMeta, auto_unbox = TRUE))
     #pRolocRawData
     pRolocRaw <- pRolocRawData(eval(as.name(dataset)))
