@@ -5,7 +5,7 @@
 ##' @return Message of success or failure.
 ##' @export
 createAccount <- function(password = "prompt", email = "prompt") {
-  projectAPI <- fromJSON("keys.json")$projectAPI
+  projectAPI <- "AIzaSyC7iVp_D4iCAOl1e6ymW9TB7aC9E8tbjD4"
   if (password == "prompt" && email == "prompt"){
     email <- readline(prompt = "Enter Email: ")
     password <- readline(prompt = "Enter Password: ")
@@ -23,7 +23,7 @@ createAccount <- function(password = "prompt", email = "prompt") {
 ##' @return Returns success or failure warning.
 ##' @export
 resetPassword <- function(email){
-  projectAPI <- fromJSON("keys.json")$projectAPI
+  projectAPI <- "AIzaSyC7iVp_D4iCAOl1e6ymW9TB7aC9E8tbjD4"
   AuthUrl <- paste0("https://www.googleapis.com/identitytoolkit/v3/relyingparty/getOobConfirmationCode?key=", projectAPI)
   userData <- POST(url = AuthUrl, body = list("email" = email, "requestType" = "PASSWORD_RESET"), encode = "json")
   if ("error" %in% names(httr::content(userData))) {
@@ -50,7 +50,7 @@ login <- function(email = "prompt", password = "prompt", simple = TRUE){
     warning("please provide your email and password")
   }
   
-  projectAPI = jsonlite::fromJSON("keys.json")$projectAPI
+  projectAPI = "AIzaSyC7iVp_D4iCAOl1e6ymW9TB7aC9E8tbjD4"
   AuthUrl <- paste0("https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=", projectAPI)
   userData <- httr::POST(url = AuthUrl, body = list("email" = email, "password" = password), encode = "json")
   if (simple) { 
