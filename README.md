@@ -11,7 +11,7 @@ The SpatialMap R package allows to manage SpatialMap user accounts and to update
 ### Setup
 ```
 if (!require("devtools")) install.packages("devtools")
-devtools::install_github("lgatto/spatialmap")
+devtools::install_github("SpatialMap/spatialmap")
 
 library(spatialmap)
 ```
